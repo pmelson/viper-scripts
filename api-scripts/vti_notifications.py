@@ -12,14 +12,14 @@ url_viper_find = 'http://localhost:8080/file/find'
 url_viper_run = 'http://localhost:8080/modules/run'
 url_viper_upload = 'http://localhost:8080/file/add'
 
-rules_list=["your","vti","hunting","rule","names"]
+rules_list=["POS_pan_regex","SpyBot","ProPOS","RawPOS","diamondfox","FighterPOS Rules","malwareint","newposthings_c2strings","modPOS","PoSeidon","ChewBacca POS","katrina","FastPOS","pos_samples_3rd_party","custom POS rules","POS_antivirus_signatures"]
 
-def getImphash(hash):
-  params = {'sha256': hash, 'cmdline': 'pe imphash'}
-  r = requests.post(url_viper_run, params)
+def getImphash(sha256):
+  params = {'sha256': sha256, 'cmdline': 'pe imphash'}
+  r = requests.post(url_run, params)
   result = r.json()
   try:
-    m = re.search(r'Imphash\:\ \\x1b\[1m([0-9a-f]+)\\x1b\[0m', result)
+    m = re.search(r'Imphash\:\ \x1b\[1m([a-f0-9]+)\x1b\[0m', result["results"][0]["data"])
     imphash = m.group(1)
   except:
     imphash = "na"
