@@ -12,7 +12,7 @@ url_viper_find = 'http://localhost:8080/file/find'
 url_viper_run = 'http://localhost:8080/modules/run'
 url_viper_upload = 'http://localhost:8080/file/add'
 
-rules_list=["POS_pan_regex","SpyBot","ProPOS","RawPOS","diamondfox","FighterPOS Rules","malwareint","newposthings_c2strings","modPOS","PoSeidon","ChewBacca POS","katrina","FastPOS","pos_samples_3rd_party","custom POS rules","POS_antivirus_signatures"]
+rules_list=["your","vti","hunting","rule","names"]
 
 def getImphash(sha256):
   params = {'sha256': sha256, 'cmdline': 'pe imphash'}
