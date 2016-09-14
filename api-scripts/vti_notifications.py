@@ -16,7 +16,7 @@ rules_list=["your","vti","hunting","rule","names"]
 
 def getImphash(sha256):
   params = {'sha256': sha256, 'cmdline': 'pe imphash'}
-  r = requests.post(url_run, params)
+  r = requests.post(url_viper_run, params)
   result = r.json()
   try:
     m = re.search(r'Imphash\:\ \x1b\[1m([a-f0-9]+)\x1b\[0m', result["results"][0]["data"])
