@@ -65,7 +65,7 @@ def getCompiletime(sha256):
   params = {'sha256': sha256, 'cmdline': 'pe compiletime'}
   r = requests.post(url_run, params)
   result = r.json()
-  m = re.search(r'Compile\ Time\:\ \\x1b\[1m(.+?)\\x1b\[0m', result["results"][0]["data"])
+  m = re.search(r'Compile\ Time\:\ \x1b\[1m(.+?)\x1b\[0m', result["results"][0]["data"])
   try:
     compiletime = m.group(1)
   except:
