@@ -19,6 +19,7 @@ class b64dec(Module):
     def __init__(self):
         super(b64dec, self).__init__()
 
+
     def run(self):
         super(b64dec, self).run()
 
@@ -26,7 +27,8 @@ class b64dec(Module):
             self.log('error', "No open session")
             return
 
-        regexp = re.compile(ur'(?:[\x20-\x7E][\x00]){3,}')
+
+        regexp = re.compile(r'(?:[\x20-\x7E][\x00]){3,}')
         if os.path.exists(__sessions__.current.file.path):
             strings = [w.decode('utf-16le') for w in regexp.findall(__sessions__.current.file.data)]
             for w in strings:
@@ -34,7 +36,6 @@ class b64dec(Module):
                   match = BASE64_REGEX.search(w)
                   try:
                     decstr = base64.b64decode(match.group(0)).decode('ascii')
-#                    self.log('info', 'base64 string found: %s' % (match.group(0)))
                     self.log('info', 'decoded string: %s' % decstr)
                   except:
                     pass
@@ -45,7 +46,6 @@ class b64dec(Module):
                   match = BASE64_REGEX.search(w)
                   try:
                     decstr = base64.b64decode(match.group(0)).decode('ascii')
-#                    self.log('info', 'base64 string found: %s' % (match.group(0)))
                     self.log('info', 'decoded string: %s' % decstr)
                   except:
                     pass
